@@ -52,7 +52,7 @@ async fn main() {
             .properties(CustomProperties::SignUp 
                 wants_promo_emails: true,
             })
-            .endqueue();
+            .enqueue();
     });
 
     tokio::spawn(async move {
