@@ -1,0 +1,26 @@
+[package]
+name = "sanglier"
+license = "MIT"
+version = "0.1.0-rc1"
+description = "PostHog Rust API client"
+authors = ["Francois Xavier Talbot <fetch@ferrous.ch>"]
+repository = "https://github.com/fetchfern/sanglier"
+edition = "2021"
+
+[dependencies]
+reqwest = "0.12"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", default-features = false, features = ["time", "macros"] }
+smallvec = { version = "1.13", features = ["serde"] }
+chrono = { version = "0.4", optional = true }
+
+[dev-dependencies]
+dotenvy = "0.15"
+tokio = { version = "1", default-features = false, features = ["time", "macros", "rt-multi-thread"] }
+
+[features]
+default = ["precise_timings"]
+
+precise_timings = ["dep:chrono"]
+debug_logs = []
