@@ -2,13 +2,13 @@
 
 An async-first, strongly typed PostHog API SDK.
 
-## Quickstart
+### Quickstart
 
 ```sh
 cargo add sanglier
 ```
 
-## Example
+### Example
 
 ```rust
 use sanglier::PostHogBuilder;
@@ -69,7 +69,7 @@ async fn main() {
 }
 ```
 
-## Disclaimers
+### Disclaimers
 
 - **This project is not production-ready**.
 - This project is not official.
