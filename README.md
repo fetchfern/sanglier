@@ -49,7 +49,7 @@ async fn main() {
     tokio::spawn(async move {
         hog_clone.capture("user_sign_up")
             .identify("8fa3c55")
-            .properties(CustomProperties::SignUp 
+            .properties(CustomProperties::SignUp {
                 wants_promo_emails: true,
             })
             .enqueue();
