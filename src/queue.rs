@@ -136,8 +136,8 @@ async fn runtime<P: Serialize + Send + Sync + 'static>(
     struct EventProperties<P: Serialize> {
         #[serde(rename = "$process_person_profile", skip_serializing_if = "Clone::clone")]
         process_person_profile: bool,
-        #[serde(rename = "$lib_name")]
-        lib_name: &'static str,
+        #[serde(rename = "$lib")]
+        lib: &'static str,
         #[serde(flatten, skip_serializing_if = "Option::is_none")]
         properties: Option<P>,
     }
@@ -189,7 +189,7 @@ async fn runtime<P: Serialize + Send + Sync + 'static>(
                 event: ev.name,
                 properties: EventProperties {
                     process_person_profile: !ev.distinct_id.is_empty(),
-                    lib_name: "sanglier",
+                    lib: "sanglier",
                     properties: ev.properties,
                 },
                 distinct_id: ev.distinct_id,
